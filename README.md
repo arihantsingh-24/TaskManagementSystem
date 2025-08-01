@@ -193,16 +193,6 @@ TaskManagementSystem/
 └── README.md
 ```
 
-## Environment Variables
-
-Create a `.env` file in the server directory:
-
-```env
-MONGODB_URI=mongodb://localhost:27017/task-management
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-PORT=5000
-```
-
 ## Security Features
 
 - JWT-based authentication
