@@ -24,7 +24,7 @@ const Dashboard = () => {
   const fetchTasks = async () => {
     try {
       const endpoint = user?.role === 'admin' ? '/api/tasks/all' : '/api/tasks';
-      const response = await axios.get(`http://localhost:5000${endpoint}`);
+      const response = await axios.get(`https://taskmanagementsystem-344u.onrender.com${endpoint}`);
       setTasks(response.data);
     } catch (error) {
       toast.error('Failed to fetch tasks');
@@ -37,7 +37,7 @@ const Dashboard = () => {
     if (!window.confirm('Are you sure you want to delete this task?')) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`);
+      await axios.delete(`https://taskmanagementsystem-344u.onrender.com/api/tasks/${taskId}`);
       toast.success('Task deleted successfully');
       fetchTasks();
     } catch (error) {
@@ -66,7 +66,7 @@ const Dashboard = () => {
 
   const handleDownloadDocument = (document) => {
     const link = document.createElement('a');
-    link.href = `http://localhost:5000/uploads/${document.filename}`;
+    link.href = `https://taskmanagementsystem-344u.onrender.com/uploads/${document.filename}`;
     link.download = document.originalName;
     document.body.appendChild(link);
     link.click();
@@ -319,7 +319,7 @@ const Dashboard = () => {
             <div className="p-6">
               {selectedDocument.mimetype.startsWith('image/') ? (
                 <img 
-                  src={`http://localhost:5000/uploads/${selectedDocument.filename}`}
+                  src={`https://taskmanagementsystem-344u.onrender.com/uploads/${selectedDocument.filename}`}
                   alt={selectedDocument.originalName}
                   className="max-w-full h-auto mx-auto"
                 />

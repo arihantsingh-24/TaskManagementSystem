@@ -42,7 +42,7 @@ const TaskModal = ({ task, onClose, onSave }) => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users');
+      const response = await axios.get('https://taskmanagementsystem-344u.onrender.com/api/users');
       setUsers(response.data);
     } catch (error) {
       toast.error('Failed to fetch users');
@@ -71,7 +71,7 @@ const TaskModal = ({ task, onClose, onSave }) => {
 
   const removeExistingDocument = async (docId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${task._id}/documents/${docId}`);
+      await axios.delete(`https://taskmanagementsystem-344u.onrender.com/api/tasks/${task._id}/documents/${docId}`);
       setExistingDocuments(existingDocuments.filter(doc => doc._id !== docId));
       toast.success('Document removed');
     } catch (error) {
@@ -85,7 +85,7 @@ const TaskModal = ({ task, onClose, onSave }) => {
 
   const handleDownloadDocument = (document) => {
     const link = document.createElement('a');
-    link.href = `http://localhost:5000/uploads/${document.filename}`;
+    link.href = `https://taskmanagementsystem-344u.onrender.com/uploads/${document.filename}`;
     link.download = document.originalName;
     document.body.appendChild(link);
     link.click();
@@ -110,10 +110,10 @@ const TaskModal = ({ task, onClose, onSave }) => {
       });
 
       if (task) {
-        await axios.put(`http://localhost:5000/api/tasks/${task._id}`, formDataToSend);
+        await axios.put(`https://taskmanagementsystem-344u.onrender.com/api/tasks/${task._id}`, formDataToSend);
         toast.success('Task updated successfully');
       } else {
-        await axios.post('http://localhost:5000/api/tasks', formDataToSend);
+        await axios.post('https://taskmanagementsystem-344u.onrender.com/api/tasks', formDataToSend);
         toast.success('Task created successfully');
       }
 
@@ -393,7 +393,7 @@ const TaskModal = ({ task, onClose, onSave }) => {
             <div className="p-6">
               {selectedDocument.mimetype.startsWith('image/') ? (
                 <img 
-                  src={`http://localhost:5000/uploads/${selectedDocument.filename}`}
+                  src={`https://taskmanagementsystem-344u.onrender.com/uploads/${selectedDocument.filename}`}
                   alt={selectedDocument.originalName}
                   className="max-w-full h-auto mx-auto"
                 />

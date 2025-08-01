@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
   const loadUser = async () => {
     if (state.token) {
       try {
-        const res = await axios.get('http://localhost:5000/api/auth/user');
+        const res = await axios.get('https://taskmanagementsystem-344u.onrender.com/api/auth/user');
         dispatch({ type: 'USER_LOADED', payload: res.data });
       } catch (error) {
         dispatch({ type: 'AUTH_ERROR' });
@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
   // Login user
   const login = async (email, password) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await axios.post('https://taskmanagementsystem-344u.onrender.com/api/auth/login', {
         email,
         password
       });
@@ -102,7 +102,7 @@ export const AuthProvider = ({ children }) => {
   // Register user
   const register = async (name, email, password) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', {
+      const res = await axios.post('https://taskmanagementsystem-344u.onrender.com/api/auth/register', {
         name,
         email,
         password
